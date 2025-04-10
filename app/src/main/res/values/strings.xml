@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Prabal 25</string>
+
+    <!--Sign In Activity-->
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+
 </resources>
