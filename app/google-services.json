@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "1007525197681",
-    "project_id": "prabal-25",
-    "storage_bucket": "prabal-25.firebasestorage.app"
+    "project_number": "624856414221",
+    "project_id": "prabal-25-75980",
+    "storage_bucket": "prabal-25-75980.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1007525197681:android:91df22c5558a9f6010a8d0",
+        "mobilesdk_app_id": "1:624856414221:android:7b3cb97c413bce3b2dbd44",
         "android_client_info": {
           "package_name": "com.devmnv.prabal25"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBYRkDDG1_PNsM9WUx5r0THaFAZeJCcAfI"
+          "current_key": "AIzaSyCh_r-bKgYuV3bHCDcB1k7eCYsf1Z-GSrg"
         }
       ],
       "services": {

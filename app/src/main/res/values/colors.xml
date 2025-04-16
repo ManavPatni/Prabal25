@@ -2,4 +2,14 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="primaryBg">#000000</color>
+    <color name="accent">#1A1A1A</color>
+    <color name="card">#3E3E3E</color>
+    <color name="primaryText">#FFFFFF</color>
+    <color name="secondaryText">#D5D9DC</color>
+
+
+    <color name="shimmerColor">#C2C2C2</color>
+
 </resources>

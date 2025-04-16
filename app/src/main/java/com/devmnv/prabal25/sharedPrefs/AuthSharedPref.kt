@@ -13,11 +13,17 @@ class AuthSharedPref(context: Context) {
         private val PREF_NAME = "AuthSharedPref"
 
         //Flow Status Key
-        private const val KEY_IS_BOARDING_SCREEN_SHOWN = "isBoardingScreenShown"
         private const val KEY_IS_SIGNED_IN = "isSignedIn"
 
         //User Data Key
+        private const val KEY_UID = "uid"
         private const val KEY_TEAM_ID = "teamId"
+        private const val KEY_HOUSE_ID = "houseId"
+        private const val KEY_NAME = "name"
+        private const val KEY_EMAIL = "email"
+        private const val KEY_PHONE_NUMBER = "phoneNumber"
+        private const val KEY_IS_LEADER = "isLeader"
+        private const val KEY_TOKEN = "token"
     }
 
     //Generic method to save a value
@@ -50,19 +56,27 @@ class AuthSharedPref(context: Context) {
     }
 
     //setter functions
-    fun setOnBoardingStatus(status: Boolean) = setValue(KEY_IS_BOARDING_SCREEN_SHOWN, status)
     fun setSignInStatus(status: Boolean) = setValue(KEY_IS_SIGNED_IN, status)
 
     //user details
-    fun setUserData(
-        teamId: String
-    ) {
-        setValue(KEY_TEAM_ID, teamId)
-    }
+    fun setUID(uid: String?) = setValue(KEY_UID, uid)
+    fun setTeamId(teamId: String?) = setValue(KEY_UID, teamId)
+    fun setHouseId(houseId: String?) = setValue(KEY_UID, houseId)
+    fun setName(name: String?) = setValue(KEY_NAME, name)
+    fun setEmail(email: String?) = setValue(KEY_EMAIL, email)
+    fun setPhoneNumber(phoneNumber: String?) = setValue(KEY_PHONE_NUMBER, phoneNumber)
+    fun setLeaderStatus(isLeader: Boolean) = setValue(KEY_IS_LEADER, isLeader)
+    fun setToken(token: String?) = setValue(KEY_TOKEN, token)
 
     // getter functions
-    fun boardingStatus(): Boolean = getValue(KEY_IS_BOARDING_SCREEN_SHOWN, false)
     fun isSignInStatus(): Boolean = getValue(KEY_IS_SIGNED_IN, false)
+    fun uid(): String? = getValue(KEY_UID, null)
     fun teamId(): String? = getValue(KEY_TEAM_ID, null)
+    fun houseId(): String? = getValue(KEY_HOUSE_ID, null)
+    fun name(): String? = getValue(KEY_NAME, null)
+    fun email(): String? = getValue(KEY_EMAIL, null)
+    fun phoneNumber(): String? = getValue(KEY_PHONE_NUMBER, null)
+    fun isLeader(): String? = getValue(KEY_IS_LEADER, null)
+    fun token(): String? = getValue(KEY_TOKEN, null)
 
 }

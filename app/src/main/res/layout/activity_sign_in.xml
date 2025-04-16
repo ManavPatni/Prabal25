@@ -26,38 +26,45 @@
             <EditText
                 android:id="@+id/et_username"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:autofillHints="username"
                 android:background="@drawable/edittext_background"
+                android:fontFamily="@font/inter"
                 android:hint="@string/username"
                 android:inputType="text"
-                android:padding="@dimen/_10sdp"
+                android:paddingStart="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_5sdp"
                 android:textColor="@android:color/black"
-                android:textColorHint="#80000000" />
+                android:textColorHint="#80000000"
+                android:textSize="@dimen/_11ssp" />
 
             <EditText
                 android:id="@+id/et_password"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="16dp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:autofillHints="password"
                 android:background="@drawable/edittext_background"
+                android:fontFamily="@font/inter"
                 android:hint="@string/password"
                 android:inputType="textPassword"
-                android:padding="@dimen/_10sdp"
+                android:paddingStart="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_5sdp"
                 android:textColor="@android:color/black"
-                android:textColorHint="#80000000" />
+                android:textColorHint="#80000000"
+                android:textSize="@dimen/_11ssp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_login"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_30sdp"
-                android:background="@drawable/custom_button"
                 android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/custom_button"
                 android:text="@string/login"
-                android:textSize="@dimen/_12ssp"
                 android:textAllCaps="false"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_12ssp" />
 
         </LinearLayout>
 
