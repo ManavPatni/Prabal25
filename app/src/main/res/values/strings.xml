@@ -6,4 +6,15 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
 
+    <!--Home Fragment-->
+    <string name="welcome_message">Welcome to,</string>
+    <string name="prabal">Prabal</string>
+
+    <!--Bottom menu-->
+    <string name="home">Home</string>
+    <string name="pass">Pass</string>
+    <string name="coupon">Coupon</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

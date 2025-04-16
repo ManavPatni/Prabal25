@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.HomeFragment"
+    android:orientation="vertical"
+    android:background="@drawable/bg_card">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_message"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/got"
+        android:textSize="@dimen/_9ssp"
+        android:textStyle="normal"
+        android:layout_marginTop="@dimen/_30sdp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/prabal"
+        android:fontFamily="@font/got"
+        android:textStyle="bold"
+        android:textSize="@dimen/_18ssp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_10sdp"/>
+
+    <TextView
+        android:id="@+id/tv_teamName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/got"
+        android:textStyle="bold"
+        android:textSize="@dimen/_14ssp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_30sdp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_members"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_team_member"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginEnd="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_15sdp"/>
+
+</LinearLayout>

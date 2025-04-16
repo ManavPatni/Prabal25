@@ -3,6 +3,7 @@
     <style name="Base.Theme.Prabal25" parent="Theme.Material3.Dark.NoActionBar">
         <!-- Customize your light theme here. -->
         <item name="colorPrimary">@color/primaryBg</item>
+
     </style>
 
     <style name="Theme.Prabal25" parent="Base.Theme.Prabal25" />

@@ -1,7 +1,7 @@
 package com.devmnv.prabal25.model
 
 data class LoginRequest(
-    val email: String,
+    val username: String,
     val password: String
 )
 

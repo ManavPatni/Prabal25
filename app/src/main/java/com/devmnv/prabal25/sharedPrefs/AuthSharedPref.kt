@@ -13,6 +13,7 @@ class AuthSharedPref(context: Context) {
         private val PREF_NAME = "AuthSharedPref"
 
         //Flow Status Key
+        private const val KEY_ON_BOARDING_COMPLETED = "isOnBoardingCompleted"
         private const val KEY_IS_SIGNED_IN = "isSignedIn"
 
         //User Data Key
@@ -56,12 +57,13 @@ class AuthSharedPref(context: Context) {
     }
 
     //setter functions
+    fun setonBoardingStatus(status: Boolean) = setValue(KEY_ON_BOARDING_COMPLETED, status)
     fun setSignInStatus(status: Boolean) = setValue(KEY_IS_SIGNED_IN, status)
 
     //user details
     fun setUID(uid: String?) = setValue(KEY_UID, uid)
-    fun setTeamId(teamId: String?) = setValue(KEY_UID, teamId)
-    fun setHouseId(houseId: String?) = setValue(KEY_UID, houseId)
+    fun setTeamId(teamId: String?) = setValue(KEY_TEAM_ID, teamId)
+    fun setHouseId(houseId: String?) = setValue(KEY_HOUSE_ID, houseId)
     fun setName(name: String?) = setValue(KEY_NAME, name)
     fun setEmail(email: String?) = setValue(KEY_EMAIL, email)
     fun setPhoneNumber(phoneNumber: String?) = setValue(KEY_PHONE_NUMBER, phoneNumber)
@@ -69,14 +71,15 @@ class AuthSharedPref(context: Context) {
     fun setToken(token: String?) = setValue(KEY_TOKEN, token)
 
     // getter functions
-    fun isSignInStatus(): Boolean = getValue(KEY_IS_SIGNED_IN, false)
+    fun onBoardingStatus(): Boolean = getValue(KEY_ON_BOARDING_COMPLETED, false)
+    fun signInStatus(): Boolean = getValue(KEY_IS_SIGNED_IN, false)
     fun uid(): String? = getValue(KEY_UID, null)
     fun teamId(): String? = getValue(KEY_TEAM_ID, null)
     fun houseId(): String? = getValue(KEY_HOUSE_ID, null)
     fun name(): String? = getValue(KEY_NAME, null)
     fun email(): String? = getValue(KEY_EMAIL, null)
     fun phoneNumber(): String? = getValue(KEY_PHONE_NUMBER, null)
-    fun isLeader(): String? = getValue(KEY_IS_LEADER, null)
+    fun isLeader(): Boolean = getValue(KEY_IS_LEADER, false)
     fun token(): String? = getValue(KEY_TOKEN, null)
 
 }

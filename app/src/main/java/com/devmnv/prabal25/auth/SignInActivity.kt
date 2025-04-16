@@ -64,7 +64,7 @@ class SignInActivity : AppCompatActivity() {
 
     private fun login() {
         val request = LoginRequest(
-            email = binding.etUsername.text.toString().trim(),
+            username = binding.etUsername.text.toString().trim(),
             password = binding.etPassword.text.toString().trim()
         )
 
@@ -79,6 +79,7 @@ class SignInActivity : AppCompatActivity() {
                     updateSharedPref(user)
                     showToast("Welcome ${user.name} 👋👋!!")
                     startActivity(Intent(this@SignInActivity, MainActivity::class.java))
+                    Log.d("data",response.body().toString())
                     finish()
                 } else {
                     val errorMsg = "Login failed (${response.code()})"

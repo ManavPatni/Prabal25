@@ -37,8 +37,8 @@ class SplashScreen : AppCompatActivity() {
 
     private fun navigateBasedOnAuthStatus() {
         val nextActivity = when {
-            !authSharedPref.boardingStatus() -> OnBoardingActivity::class.java
-            authSharedPref.isSignInStatus() -> MainActivity::class.java
+            !authSharedPref.onBoardingStatus() -> OnBoardingActivity::class.java
+            authSharedPref.signInStatus() -> MainActivity::class.java
             else -> SignInActivity::class.java
         }
         exit(nextActivity)
