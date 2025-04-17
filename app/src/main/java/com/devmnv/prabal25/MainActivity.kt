@@ -11,11 +11,6 @@ import com.devmnv.prabal25.fragment.CouponFragment
 import com.devmnv.prabal25.fragment.HomeFragment
 import com.devmnv.prabal25.fragment.PassFragment
 import com.devmnv.prabal25.sharedPrefs.AuthSharedPref
-import com.onesignal.OneSignal
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Delay
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 

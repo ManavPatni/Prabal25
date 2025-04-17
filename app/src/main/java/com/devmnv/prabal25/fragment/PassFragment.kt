@@ -64,7 +64,7 @@ class PassFragment : Fragment() {
         val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
 
         // Your desired QR color
-        val qrColor = Color.parseColor("#693710")
+        val qrColor = Color.parseColor("#8D470C")
 
         for (x in 0 until width) {
             for (y in 0 until height) {

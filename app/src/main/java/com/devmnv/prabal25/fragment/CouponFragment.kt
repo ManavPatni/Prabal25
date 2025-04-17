@@ -47,9 +47,10 @@ class CouponFragment : Fragment() {
                         layoutManager = LinearLayoutManager(requireContext())
                         adapter = couponAdapter
                     }
+                    if (couponAdapter.itemCount == 0) binding.tvNoCouponsFound.visibility = View.VISIBLE
                     Log.d("CouponFragment", "Coupons fetched successfully: $couponData")
                 } else {
-                    binding.tvCoupons.visibility = View.VISIBLE
+                    binding.tvNoCouponsFound.visibility = View.VISIBLE
                     val errorCode = response.code()
                     val errorMsg = response.errorBody()?.string() ?: "Unknown error"
                     Log.e("CouponFragment", "API error: $errorCode, $errorMsg")
