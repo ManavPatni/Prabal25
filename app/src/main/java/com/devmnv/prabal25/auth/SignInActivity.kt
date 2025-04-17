@@ -31,8 +31,6 @@ class SignInActivity : AppCompatActivity() {
     private lateinit var authSharedPref: AuthSharedPref
     private val apiService by lazy { RetrofitClient.instance.create(Services::class.java) }
 
-    val ONESIGNAL_APP_ID = "cef228d9-7495-497f-9f66-c025472cc8ea"
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
@@ -40,7 +38,6 @@ class SignInActivity : AppCompatActivity() {
 
         authSharedPref = AuthSharedPref(this)
 
-        OneSignal.initWithContext(this, ONESIGNAL_APP_ID)
         CoroutineScope(Dispatchers.Main).launch {
             OneSignal.Notifications.requestPermission(true)
         }

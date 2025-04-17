@@ -10,6 +10,7 @@ import com.devmnv.prabal25.auth.OnBoardingActivity
 import com.devmnv.prabal25.auth.SignInActivity
 import com.devmnv.prabal25.databinding.ActivitySplashScreenBinding
 import com.devmnv.prabal25.sharedPrefs.AuthSharedPref
+import com.onesignal.OneSignal
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -20,6 +21,8 @@ class SplashScreen : AppCompatActivity() {
     private val splashDelay: Long = 2000L
     private var hasNavigated = false
 
+    val ONESIGNAL_APP_ID = "cef228d9-7495-497f-9f66-c025472cc8ea"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -27,6 +30,7 @@ class SplashScreen : AppCompatActivity() {
         setContentView(binding.root)
 
         authSharedPref = AuthSharedPref(this)
+        OneSignal.initWithContext(this, ONESIGNAL_APP_ID)
 
         // Start the delayed navigation
         lifecycleScope.launch {
