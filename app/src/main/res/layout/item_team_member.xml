@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:text="Member Name"
             android:textColor="@color/primaryText"
-            android:fontFamily="@font/got"
+            android:fontFamily="@font/cinzel_decorative_bold"
             android:textStyle="normal"
             android:textSize="@dimen/_12ssp"
             android:layout_marginBottom="@dimen/_4sdp"/>

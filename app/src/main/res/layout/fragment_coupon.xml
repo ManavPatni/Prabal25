@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,13 +8,27 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/tv_coupons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/coupons"
         android:fontFamily="@font/got"
         android:textSize="@dimen/_20ssp"
         android:layout_marginTop="@dimen/_30sdp"
-        android:layout_gravity="center"/>
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/tv_noCouponsFound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_35sdp"
+        android:layout_marginEnd="@dimen/_35sdp"
+        android:textAlignment="center"
+        android:text="@string/no_coupons"
+        android:fontFamily="@font/cinzel_decorative_bold"
+        android:textSize="@dimen/_12ssp"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_coupons"
@@ -22,7 +36,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_30sdp"
         tools:listitem="@layout/item_coupons"
+        android:layout_below="@id/tv_coupons"
         android:layout_marginStart="@dimen/_35sdp"
         android:layout_marginEnd="@dimen/_35sdp"/>
 
-</LinearLayout>
+</RelativeLayout>

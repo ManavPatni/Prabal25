@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 import com.devmnv.prabal25.sharedPrefs.AuthSharedPref
+import com.onesignal.OneSignal
 
 object AuthManager {
 
@@ -30,6 +31,8 @@ object AuthManager {
             setLeaderStatus(false)
             setToken(null)
         }
+
+        OneSignal.logout()
 
         val intent = Intent(context, SignInActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

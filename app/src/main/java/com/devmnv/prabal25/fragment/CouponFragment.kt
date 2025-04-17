@@ -49,6 +49,7 @@ class CouponFragment : Fragment() {
                     }
                     Log.d("CouponFragment", "Coupons fetched successfully: $couponData")
                 } else {
+                    binding.tvCoupons.visibility = View.VISIBLE
                     val errorCode = response.code()
                     val errorMsg = response.errorBody()?.string() ?: "Unknown error"
                     Log.e("CouponFragment", "API error: $errorCode, $errorMsg")

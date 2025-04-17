@@ -122,15 +122,15 @@ class CouponAdapter(
         }
 
         private fun generateBarcode(couponCode: String, participantId: String?): Bitmap {
-            val width = 800 // Wider for barcode readability
-            val height = 200 // Shorter height for linear barcode
+            val width = 500 // Wider for barcode readability
+            val height = 500 // Shorter height for linear barcode
             val jsonData = JSONObject().apply {
                 put("couponCode", couponCode)
                 put("participantId", participantId ?: 0) // Fallback to 0 if null
             }.toString()
             val bitMatrix: BitMatrix = MultiFormatWriter().encode(
                 jsonData,
-                BarcodeFormat.CODE_128,
+                BarcodeFormat.QR_CODE,
                 width,
                 height
             )

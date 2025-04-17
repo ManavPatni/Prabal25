@@ -57,7 +57,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
 
     //firebase
-    implementation(platform("com.google.firebase:firebase-bom:33.10.0"))
+    implementation(platform("com.google.firebase:firebase-bom:33.12.0"))
     //Crashlytics
     implementation("com.google.firebase:firebase-crashlytics")
     implementation("com.google.firebase:firebase-analytics")
@@ -84,5 +84,8 @@ dependencies {
 
     //shimmer
     implementation("com.facebook.shimmer:shimmer:0.5.0")
+
+    //OneSignal
+    implementation("com.onesignal:OneSignal:5.1.31")
 
 }
