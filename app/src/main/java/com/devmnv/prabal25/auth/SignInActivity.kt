@@ -17,6 +17,8 @@ import com.devmnv.prabal25.model.User
 import com.devmnv.prabal25.network.Services
 import com.devmnv.prabal25.sharedPrefs.AuthSharedPref
 import com.devmnv.prabaladmin.network.RetrofitClient
+import com.onesignal.OneSignal
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -29,12 +31,19 @@ class SignInActivity : AppCompatActivity() {
     private lateinit var authSharedPref: AuthSharedPref
     private val apiService by lazy { RetrofitClient.instance.create(Services::class.java) }
 
+    val ONESIGNAL_APP_ID = "cef228d9-7495-497f-9f66-c025472cc8ea"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         authSharedPref = AuthSharedPref(this)
+
+        OneSignal.initWithContext(this, ONESIGNAL_APP_ID)
+        CoroutineScope(Dispatchers.Main).launch {
+            OneSignal.Notifications.requestPermission(true)
+        }
 
         binding.btnLogin.setOnClickListener {
             if (isValidInput()) {
@@ -109,6 +118,7 @@ class SignInActivity : AppCompatActivity() {
             setLeaderStatus(user.isLeader)
             setToken(user.token)
         }
+        OneSignal.login(externalId = user.id.toString())
     }
 
     private fun showToast(message: String) {

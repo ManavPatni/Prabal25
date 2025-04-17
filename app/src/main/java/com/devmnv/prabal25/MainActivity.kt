@@ -26,8 +26,6 @@ class MainActivity : AppCompatActivity() {
     private var passFragment: PassFragment? = null
     private var couponFragmentTag = "coupon_fragment"
 
-    val ONESIGNAL_APP_ID = "cef228d9-7495-497f-9f66-c025472cc8ea"
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -36,8 +34,6 @@ class MainActivity : AppCompatActivity() {
         //Initialization
         authSharedPref = AuthSharedPref(this)
         //OneSignal
-        OneSignal.initWithContext(this, ONESIGNAL_APP_ID)
-        setupOneSignal()
 
         // Init fragments
         homeFragment = HomeFragment()
@@ -49,31 +45,6 @@ class MainActivity : AppCompatActivity() {
             .commit()
 
         setupBottomNav()
-    }
-
-    private fun setupOneSignal() {
-        CoroutineScope(Dispatchers.Main).launch {
-            try {
-                // Request notification permission
-                val permissionAccepted = OneSignal.Notifications.requestPermission(true)
-                Log.d("OneSignal", "Notification permission accepted: $permissionAccepted")
-
-                if (permissionAccepted) {
-                    // Permission granted, proceed with login
-                    val teamId = AuthManager.getTeamId(this@MainActivity)
-                    if (teamId.isNotEmpty()) {
-                        OneSignal.login(teamId)
-                        Log.d("OneSignal", "Logged in with teamId: $teamId")
-                    } else {
-                        Log.e("OneSignal", "Team ID is empty, cannot log in")
-                    }
-                } else {
-                    Log.w("OneSignal", "User denied notification permission")
-                }
-            } catch (e: Exception) {
-                Log.e("OneSignal", "Error setting up OneSignal: ${e.message}")
-            }
-        }
     }
 
     private fun setupBottomNav() {

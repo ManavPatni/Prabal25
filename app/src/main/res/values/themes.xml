@@ -8,6 +8,14 @@
 
     <style name="Theme.Prabal25" parent="Base.Theme.Prabal25" />
 
+    <!--Full screen mode-->
+    <style name="FullScreenTheme" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
     <!--Bottom Nav-->
     <style name="CustomBottomNavStyle" parent="Widget.MaterialComponents.BottomNavigationView">
         <item name="itemRippleColor">@android:color/transparent</item>

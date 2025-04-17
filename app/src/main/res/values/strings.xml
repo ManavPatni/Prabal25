@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Prabal 25</string>
 
+    <!--On Boarding Activity-->
+    <string name="skip_intro">Skip Intro</string>
+
     <!--Sign In Activity-->
     <string name="username">Username</string>
     <string name="password">Password</string>
@@ -20,6 +23,4 @@
     <string name="shop">Shop</string>
     <string name="logout">Logout</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
