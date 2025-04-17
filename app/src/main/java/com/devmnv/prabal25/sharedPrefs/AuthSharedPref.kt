@@ -21,6 +21,7 @@ class AuthSharedPref(context: Context) {
         private const val KEY_TEAM_ID = "teamId"
         private const val KEY_HOUSE_ID = "houseId"
         private const val KEY_NAME = "name"
+        private const val KEY_TEAM_NAME = "teamName"
         private const val KEY_EMAIL = "email"
         private const val KEY_PHONE_NUMBER = "phoneNumber"
         private const val KEY_IS_LEADER = "isLeader"
@@ -65,6 +66,7 @@ class AuthSharedPref(context: Context) {
     fun setTeamId(teamId: String?) = setValue(KEY_TEAM_ID, teamId)
     fun setHouseId(houseId: String?) = setValue(KEY_HOUSE_ID, houseId)
     fun setName(name: String?) = setValue(KEY_NAME, name)
+    fun setTeamName(teamName: String?) = setValue(KEY_TEAM_NAME, teamName)
     fun setEmail(email: String?) = setValue(KEY_EMAIL, email)
     fun setPhoneNumber(phoneNumber: String?) = setValue(KEY_PHONE_NUMBER, phoneNumber)
     fun setLeaderStatus(isLeader: Boolean) = setValue(KEY_IS_LEADER, isLeader)
@@ -77,6 +79,7 @@ class AuthSharedPref(context: Context) {
     fun teamId(): String? = getValue(KEY_TEAM_ID, null)
     fun houseId(): String? = getValue(KEY_HOUSE_ID, null)
     fun name(): String? = getValue(KEY_NAME, null)
+    fun teamName(): String? = getValue(KEY_TEAM_NAME, null)
     fun email(): String? = getValue(KEY_EMAIL, null)
     fun phoneNumber(): String? = getValue(KEY_PHONE_NUMBER, null)
     fun isLeader(): Boolean = getValue(KEY_IS_LEADER, false)

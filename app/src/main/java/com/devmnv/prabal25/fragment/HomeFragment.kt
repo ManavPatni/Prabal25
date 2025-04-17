@@ -48,6 +48,7 @@ class HomeFragment : Fragment() {
                     val teamData = response.body()!!
                     binding.tvTeamName.text = teamData.team.name
                     AuthSharedPref(requireContext()).setHouseId(teamData.team.houseId.toString())
+                    AuthSharedPref(requireContext()).setTeamName(teamData.team.name)
                     teamMemberAdapter = TeamMemberAdapter(teamData.members.toMutableList())
                     binding.rvMembers.apply {
                         layoutManager = LinearLayoutManager(requireContext())

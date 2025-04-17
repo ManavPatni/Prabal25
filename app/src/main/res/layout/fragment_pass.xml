@@ -8,6 +8,18 @@
     android:background="@drawable/bg_card"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/tv_teamName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/got"
+        android:textSize="@dimen/_14ssp"
+        android:textStyle="bold"
+        android:translationY="@dimen/_30sdp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -26,7 +38,7 @@
         android:layout_height="@dimen/_140sdp"
         android:scaleType="fitXY"
         android:contentDescription="@string/pass"
-        android:layout_marginBottom="@dimen/_50sdp"
+        android:layout_marginBottom="@dimen/_35sdp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/imageView"

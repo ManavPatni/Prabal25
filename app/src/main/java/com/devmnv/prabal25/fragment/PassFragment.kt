@@ -13,6 +13,7 @@ import com.devmnv.prabal25.R
 import com.devmnv.prabal25.auth.AuthManager
 import com.devmnv.prabal25.databinding.FragmentHomeBinding
 import com.devmnv.prabal25.databinding.FragmentPassBinding
+import com.devmnv.prabal25.sharedPrefs.AuthSharedPref
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.common.BitMatrix
@@ -32,6 +33,8 @@ class PassFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentPassBinding.inflate(inflater, container, false)
+
+        binding.tvTeamName.text = AuthSharedPref(requireContext()).teamName()
 
         // Generate QR code in background thread
         CoroutineScope(Dispatchers.IO).launch {
@@ -61,7 +64,7 @@ class PassFragment : Fragment() {
         val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
 
         // Your desired QR color
-        val qrColor = Color.parseColor("#E047280B")
+        val qrColor = Color.parseColor("#693710")
 
         for (x in 0 until width) {
             for (y in 0 until height) {
