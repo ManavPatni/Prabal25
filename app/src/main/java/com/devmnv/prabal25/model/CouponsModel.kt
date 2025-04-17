@@ -6,7 +6,8 @@ data class Coupon(
     val description: String,
     val enabledAt: String,
     val expiresAt: String,
-    val isClaimable: Boolean
+    val isClaimable: Boolean,
+    var isFlipped: Boolean = false
 )
 
 data class CouponsWrapper(

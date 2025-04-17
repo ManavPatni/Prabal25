@@ -2,19 +2,17 @@ package com.devmnv.prabal25.fragment
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.devmnv.prabal25.adapter.CouponAdapter
-import com.devmnv.prabal25.adapter.TeamMemberAdapter
 import com.devmnv.prabal25.auth.AuthManager
 import com.devmnv.prabal25.databinding.FragmentCouponBinding
 import com.devmnv.prabal25.network.Services
-import com.devmnv.prabal25.sharedPrefs.AuthSharedPref
 import com.devmnv.prabaladmin.network.RetrofitClient
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
@@ -32,9 +30,7 @@ class CouponFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentCouponBinding.inflate(inflater, container, false)
-
         fetchCoupons()
-
         return binding.root
     }
 
@@ -84,5 +80,4 @@ class CouponFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }
