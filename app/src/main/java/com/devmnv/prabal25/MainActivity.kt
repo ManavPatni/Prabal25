@@ -1,6 +1,7 @@
 package com.devmnv.prabal25
 
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -12,6 +13,7 @@ import com.devmnv.prabal25.fragment.PassFragment
 import com.devmnv.prabal25.sharedPrefs.AuthSharedPref
 import com.onesignal.OneSignal
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Delay
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -89,10 +91,6 @@ class MainActivity : AppCompatActivity() {
                     // Always refresh CouponFragment
                     val couponFragment = CouponFragment()
                     replaceFragment(couponFragment, couponFragmentTag)
-                    true
-                }
-                R.id.nav_shop -> {
-                    //showFragment(passFragment!!)
                     true
                 }
                 R.id.nav_logout -> {
