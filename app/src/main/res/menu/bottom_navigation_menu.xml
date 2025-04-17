@@ -13,7 +13,7 @@
 
     <item
         android:id="@+id/nav_coupon"
-        android:title="@string/coupon"
+        android:title="@string/coupons"
         android:icon="@drawable/ic_coupon"/>
 
 </menu>

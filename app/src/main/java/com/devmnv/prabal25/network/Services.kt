@@ -1,5 +1,6 @@
 package com.devmnv.prabal25.network
 
+import com.devmnv.prabal25.model.CouponsWrapper
 import com.devmnv.prabal25.model.LoginRequest
 import com.devmnv.prabal25.model.TeamWrapper
 import com.devmnv.prabal25.model.User
@@ -30,5 +31,11 @@ interface Services {
         @Header("Authorization") token: String,
         @Path("teamId") teamId: String
     ): Response<TeamWrapper>
+
+    //Get all available coupons
+    @GET("team/member/available-coupons")
+    suspend fun getAvailableCoupons(
+        @Header("Authorization") token: String,
+    ): Response<CouponsWrapper>
 
 }

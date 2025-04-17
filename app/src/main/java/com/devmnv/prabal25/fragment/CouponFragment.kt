@@ -1,60 +1,88 @@
 package com.devmnv.prabal25.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.devmnv.prabal25.R
+import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.devmnv.prabal25.adapter.CouponAdapter
+import com.devmnv.prabal25.adapter.TeamMemberAdapter
+import com.devmnv.prabal25.auth.AuthManager
+import com.devmnv.prabal25.databinding.FragmentCouponBinding
+import com.devmnv.prabal25.network.Services
+import com.devmnv.prabal25.sharedPrefs.AuthSharedPref
+import com.devmnv.prabaladmin.network.RetrofitClient
+import kotlinx.coroutines.launch
+import retrofit2.HttpException
+import java.io.IOException
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [CouponFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CouponFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentCouponBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var couponAdapter: CouponAdapter
+    private val apiService by lazy { RetrofitClient.instance.create(Services::class.java) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_coupon, container, false)
+    ): View {
+        _binding = FragmentCouponBinding.inflate(inflater, container, false)
+
+        fetchCoupons()
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CouponFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CouponFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun fetchCoupons() {
+        lifecycleScope.launch {
+            try {
+                val token = AuthManager.getToken(requireContext())
+                val response = apiService.getAvailableCoupons(token)
+
+                if (response.isSuccessful && response.body() != null) {
+                    val couponData = response.body()!!
+                    couponAdapter = CouponAdapter(couponData.coupons.toMutableList())
+                    binding.rvCoupons.apply {
+                        layoutManager = LinearLayoutManager(requireContext())
+                        adapter = couponAdapter
+                    }
+                    Log.d("CouponFragment", "Coupons fetched successfully: $couponData")
+                } else {
+                    val errorCode = response.code()
+                    val errorMsg = response.errorBody()?.string() ?: "Unknown error"
+                    Log.e("CouponFragment", "API error: $errorCode, $errorMsg")
+                    if (errorCode == 401) {
+                        AuthManager.logout(requireContext())
+                        showToast("Session expired. Please log in again.")
+                    } else {
+                        showToast("Failed to load coupons details.")
+                    }
                 }
+            } catch (e: IOException) {
+                Log.e("CouponFragment", "Network error: ${e.message}", e)
+                showToast("Network error. Please check your connection.")
+            } catch (e: HttpException) {
+                Log.e("CouponFragment", "HTTP exception: ${e.message}", e)
+                showToast("Server error. Please try again later.")
+            } catch (e: Exception) {
+                Log.e("CouponFragment", "Unexpected error: ${e.message}", e)
+                showToast("An unexpected error occurred.")
             }
+        }
     }
+
+    private fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }
